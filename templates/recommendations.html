@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recomendations</title>
+</head>
+<body>
+			<h1>{{headingh}}</h1>
+			<b><big>List of movies(User-User Approach):</big></b>
+				<table>
+				    <tr id="row">
+				    	<th class="ID">ID</th>
+				    	<th class="year">Year</th>
+				    	<th class="name">Name</th>
+				    	<th class="desc">Poster</th>
+				    </tr>
+					{% for movie in movies_user %}
+					<tr class="datas">
+						<td class="movie_ids" >{{movie['MovieID']}}</td>
+						<td class="year">{{ movie['Year'] }}</td>
+
+						<td class="name" align="center">{{ movie['Title'] }}</td>
+
+						<td><input type="image" src="{{ movie['Poster'] }}" alt="Submit ME" style="width:50px;height:50px;"></td>
+
+					</tr>
+					{% endfor %}
+				</table>
+
+            <b><big>List of movies(Item-Item Approach):</big></b>
+				<table>
+				    <tr id="row">
+				    	<th class="ID">ID</th>
+				    	<th class="year">Year</th>
+				    	<th class="name">Name</th>
+				    	<th class="desc">Poster</th>
+				    </tr>
+					{% for movie in movies_item %}
+					<tr class="datas">
+						<td class="movie_ids" >{{movie['MovieID']}}</td>
+						<td class="year">{{ movie['Year'] }}</td>
+
+						<td class="name" align="center">{{ movie['Title'] }}</td>
+
+						<td><input type="image" src="{{ movie['Poster'] }}" alt="Submit ME" style="width:50px;height:50px;"></td>
+
+					</tr>
+					{% endfor %}
+				</table>
+
+
+            <b><big>List of movies(Matrix-Factorisation Approach):</big></b>
+				<table>
+				    <tr id="row">
+				    	<th class="ID">ID</th>
+				    	<th class="year">Year</th>
+				    	<th class="name">Name</th>
+				    	<th class="desc">Poster</th>
+				    </tr>
+					{% for movie in movies_matrix_factor %}
+					<tr class="datas">
+						<td class="movie_ids" >{{movie['MovieID']}}</td>
+						<td class="year">{{ movie['Year'] }}</td>
+
+						<td class="name" align="center">{{ movie['Title'] }}</td>
+
+						<td><input type="image" src="{{ movie['Poster'] }}" alt="Submit ME" style="width:50px;height:50px;"></td>
+
+					</tr>
+					{% endfor %}
+				</table>
+
+		</body>
+</html>

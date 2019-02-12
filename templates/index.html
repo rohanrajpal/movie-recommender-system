@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+	<html>
+		<body>
+			<h1>{{headingh}}</h1>
+			<b><big>List of movies:</big></b>
+				<table>
+				    <tr id="row">
+
+				    	<th class="ID">ID</th>
+				    	<th class="year">Year</th>
+				    	<th class="name">Name</th>
+				    	<th class="desc">Poster</th>
+                        {% if show_rating %}
+				    	    <th class="rate">Rate</th>
+                        {% endif %}
+				    </tr>
+				    <form method="post" action="/action">
+					{% for movie in movies %}
+					<tr class="datas">
+						<td class="movie_ids" >{{movie['MovieID']}}</td>
+                        <input type="hidden" name="movie_id" value="{{ movie['MovieID'] }}" />
+						<td class="year">{{ movie['Year'] }}</td>
+						
+						<td class="name" align="center">{{ movie['Title'] }}</td>
+
+						<td><input type="image" src="{{ movie['Poster'] }}" alt="Submit ME" style="width:50px;height:50px;"></td>
+						{% if show_rating %}
+                            <td class= "rate">
+                              <input type="text" name="rating"><br>
+                              <!-- <input type="submit" value="Submit"> -->
+                            </td>
+                        {% endif %}
+					</tr>
+					{% endfor %}
+                    <input type="submit" value="Submit">
+				    </form>
+				</table>
+
+		</body>
+	</html>
