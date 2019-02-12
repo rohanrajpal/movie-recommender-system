@@ -1,6 +1,7 @@
 from flask import Flask,render_template,request,redirect
 from pprint import pprint
 import json
+import os
 from pymongo import MongoClient
 # import .Recommendation_system.matrix_factorisation
 from easy_factor_surprise import remove_user_data,add_user_data
@@ -10,12 +11,12 @@ app = Flask(__name__)
 #path to csv files
 pathr = 'data/smaller_data/small_ratings.csv'
 pathw = 'data/smaller_data/small_ratings_copy.csv'
-# pprint(mongo.db.users)
+# pprint(mongo.db.usergit s)
 title = "Movie Recommendation"
 heading = "Rate alteast 10 movies"
-
-client = MongoClient('mongodb://localhost:27017/')
-db=client.movies
+MONGO_URL = os.environ.get('mongodb://heroku:t0jAu_Zkkvj0iSCRIMZe07kRboi-t0DQYIrnzY-1bxlHDNXBYp6AjvJXJiwe9w9D-WjrOhhoUzVdOMtyoO8FPQ@candidate.66.mongolayer.com:10351,candidate.61.mongolayer.com:11313/app124683125')
+client = MongoClient(MONGO_URL)
+db=client.app29843323
 movies_togive = db.movie_data
 show_rating_ = True
 
