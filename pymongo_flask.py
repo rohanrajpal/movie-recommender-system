@@ -49,10 +49,10 @@ def action ():
 	recommendations = recsys.solve_user_user(pathw)
 	reclist_user = conv_to_dict(recommendations)
 
-	recommendations = recsys.solve_item_item(pathw)
+	# recommendations = recsys.1solve_item_item(pathw)
 	reclist_item = conv_to_dict(recommendations)
 
-	recommendations = recsys.solve_matrix_factorisation(pathw)
+	# recommendations = recsys.solve_matrix_factorisation(pathw)
 	reclist_matrix = conv_to_dict(recommendations)
 
 	# print(recommendations)
