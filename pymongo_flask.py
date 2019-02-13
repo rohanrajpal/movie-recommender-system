@@ -8,7 +8,7 @@ import store_in_mogodb as store_movie_data
 from easy_factor_surprise import remove_user_data,add_user_data
 import easy_factor_surprise as recsys
 # from requests import request
-store_movie_data.solve()
+# store_movie_data.solve()
 app = Flask(__name__)
 #path to csv files
 pathr = 'data/smaller_data/small_ratings.csv'
@@ -16,7 +16,7 @@ pathw = 'data/smaller_data/small_ratings_copy.csv'
 # pprint(mongo.db.usergit s)
 title = "Movie Recommendation"
 heading = "Rate alteast 10 movies"
-MONGO_URL = os.environ.get('mongodb://heroku:t0jAu_Zkkvj0iSCRIMZe07kRboi-t0DQYIrnzY-1bxlHDNXBYp6AjvJXJiwe9w9D-WjrOhhoUzVdOMtyoO8FPQ@candidate.66.mongolayer.com:10351,candidate.61.mongolayer.com:11313/app124683125')
+MONGO_URL = os.environ.get('MONGOHQ_URL')
 client = MongoClient(MONGO_URL)
 db=client.app29843323.movies
 movies_togive = db.movie_data
@@ -89,6 +89,6 @@ if __name__ == '__main__':
 
 	port = int(os.environ.get("PORT", 5000))
 	app.run(host='0.0.0.0', port=port)
-	app.jinja_env.auto_reload = True
-	app.config['TEMPLATES_AUTO_RELOAD'] = True
-	app.run(debug = True)
+	# app.jinja_env.auto_reload = True
+	# app.config['TEMPLATES_AUTO_RELOAD'] = True
+	app.run(debug = False)
