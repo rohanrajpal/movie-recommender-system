@@ -6,7 +6,7 @@ from pymongo import MongoClient
 import store_in_mogodb as store_movie_data
 # import .Recommendation_system.matrix_factorisation
 from easy_factor_surprise import remove_user_data,add_user_data
-import easy_factor_surprise as recsysgit
+import easy_factor_surprise as recsys
 # from requests import request
 # store_movie_data.solve()
 app = Flask(__name__)
