@@ -8,6 +8,7 @@ import store_in_mogodb as store_movie_data
 from easy_factor_surprise import remove_user_data,add_user_data
 import easy_factor_surprise as recsys
 import user_user
+import item_item
 # from requests import request
 # store_movie_data.solve()
 app = Flask(__name__)
@@ -55,12 +56,13 @@ def action ():
 			break
 	recommendations = []
 	recommendations = user_user.solve(data_to_send)
-	print(type(recommendations))
+	# print(type(recommendations))
 	reclist_user = conv_to_dict(recommendations)
 
-	# recommendations = recsys.1solve_item_item(pathw)
+	recommendations = item_item.solve(data_to_send)
+	# print(recommendations)
 	reclist_item = conv_to_dict(recommendations)
-
+	# print(reclist_item)
 	# recommendations = recsys.solve_matrix_factorisation(pathw)
 	reclist_matrix = conv_to_dict(recommendations)
 
@@ -102,6 +104,6 @@ if __name__ == '__main__':
 
 	port = int(os.environ.get("PORT", 5000))
 	app.run(host='0.0.0.0', port=port)
-	# app.jinja_env.auto_reload = True
-	# app.config['TEMPLATES_AUTO_RELOAD'] = True
+	app.jinja_env.auto_reload = True
+	app.config['TEMPLATES_AUTO_RELOAD'] = True
 	app.run(debug = False)
