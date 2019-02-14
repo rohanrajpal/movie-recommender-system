@@ -7,6 +7,7 @@ import store_in_mogodb as store_movie_data
 # import .Recommendation_system.matrix_factorisation
 from easy_factor_surprise import remove_user_data,add_user_data
 import easy_factor_surprise as recsys
+import user_user
 # from requests import request
 # store_movie_data.solve()
 app = Flask(__name__)
@@ -22,8 +23,8 @@ MONGO_URL = 'mongodb://heroku:t0jAu_Zkkvj0iSCRIMZe07kRboi-t0DQYIrnzY-1bxlHDNXBYp
 client = MongoClient(MONGO_URL)
 db=client.app124683125
 movies_togive = db.movie_data
-for x in movies_togive.find():
-	print(x)
+# for x in movies_togive.find():
+# 	print(x)
 show_rating_ = True
 
 @app.route("/")
@@ -40,13 +41,23 @@ def action ():
 	rating_list = request.form.getlist('rating')
 	id_list = request.form.getlist("movie_id")
 	data_to_send = []
+	# for i in range(len(id_list)):
+	# 	if rating_list[i] !='':
+	# 		data_to_send+=[[id_list[i],rating_list[i]]]
 	for i in range(len(id_list)):
 		if rating_list[i] !='':
-			data_to_send+=[[id_list[i],rating_list[i]]]
-
-	add_user_data(data_to_send, pathr, pathw)
+			# data_to_send+=[[id_list[i],rating_list[i]]]
+			data_to_send.append(int(rating_list[i]))
+		else:
+			data_to_send.append(0)
+		if i==177:
+			break
+	# remove_user_data(pathw)
+	# add_user_data(data_to_send, pathr, pathw)
 	recommendations = []
-	recommendations = recsys.solve_user_user(pathw)
+	# print(data_to_send)
+	recommendations = user_user.solve(data_to_send)
+	print(type(recommendations))
 	reclist_user = conv_to_dict(recommendations)
 
 	# recommendations = recsys.1solve_item_item(pathw)
@@ -67,7 +78,7 @@ def action ():
 def conv_to_dict(recommendations):
 	reclist = []
 	for mov_id in recommendations:
-		temp = movies_togive.find(movies_togive.find_one({'MovieID': int(mov_id)}))
+		temp = movies_togive.find(movies_togive.find_one({'MovieID': (mov_id[0])}))
 		reclist += temp
 	# pprint(temp)
 	return reclist
@@ -91,8 +102,8 @@ def conv_to_dict(recommendations):
 
 if __name__ == '__main__':
 
-	port = int(os.environ.get("PORT", 5000))
-	app.run(host='0.0.0.0', port=port)
-	# app.jinja_env.auto_reload = True
-	# app.config['TEMPLATES_AUTO_RELOAD'] = True
-	app.run(debug = False)
+	# port = int(os.environ.get("PORT", 5000))
+	# app.run(host='0.0.0.0', port=port)
+	app.jinja_env.auto_reload = True
+	app.config['TEMPLATES_AUTO_RELOAD'] = True
+	app.run(debug = True)
