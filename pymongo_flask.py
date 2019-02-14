@@ -18,9 +18,9 @@ pathw = 'data/smaller_data/small_ratings_copy.csv'
 title = "Movie Recommendation"
 heading = "Rate alteast 10 movies"
 MONGO_URL = os.environ.get('MONGOHQ_URL')
-print(MONGO_URL)
-MONGO_URL = 'mongodb://heroku:t0jAu_Zkkvj0iSCRIMZe07kRboi-t0DQYIrnzY-1bxlHDNXBYp6AjvJXJiwe9w9D-WjrOhhoUzVdOMtyoO8FPQ' \
-			'@candidate.66.mongolayer.com:10351,candidate.61.mongolayer.com:11313/app124683125'
+# print(MONGO_URL)
+# MONGO_URL = 'mongodb://heroku:t0jAu_Zkkvj0iSCRIMZe07kRboi-t0DQYIrnzY-1bxlHDNXBYp6AjvJXJiwe9w9D-WjrOhhoUzVdOMtyoO8FPQ' \
+# 			'@candidate.66.mongolayer.com:10351,candidate.61.mongolayer.com:11313/app124683125'
 client = MongoClient(MONGO_URL)
 db=client.app124683125
 movies_togive = db.movie_data
@@ -100,8 +100,8 @@ def conv_to_dict(recommendations):
 
 if __name__ == '__main__':
 
-	# port = int(os.environ.get("PORT", 5000))
-	# app.run(host='0.0.0.0', port=port)
+	port = int(os.environ.get("PORT", 5000))
+	app.run(host='0.0.0.0', port=port)
 	# app.jinja_env.auto_reload = True
 	# app.config['TEMPLATES_AUTO_RELOAD'] = True
 	app.run(debug = False)
