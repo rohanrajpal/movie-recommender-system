@@ -90,8 +90,9 @@ def solve(data_to_add):
 
     # print(data_to_add)
 
-    print(len(M))
-    M =np.vstack([M,data_to_add])
+    lenlast = (len(M))
+    print(len(M[lenlast-1]),len(data_to_add))
+    M = np.vstack([M,data_to_add])
     print(len(M))
     # M.append(data_to_add)
     # print(len(M),len(M[0]))

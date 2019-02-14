@@ -18,6 +18,7 @@ pathw = 'data/smaller_data/small_ratings_copy.csv'
 title = "Movie Recommendation"
 heading = "Rate alteast 10 movies"
 MONGO_URL = os.environ.get('MONGOHQ_URL')
+# print(MONGO_URL)
 # MONGO_URL = 'mongodb://heroku:t0jAu_Zkkvj0iSCRIMZe07kRboi-t0DQYIrnzY-1bxlHDNXBYp6AjvJXJiwe9w9D-WjrOhhoUzVdOMtyoO8FPQ' \
 # 			'@candidate.66.mongolayer.com:10351,candidate.61.mongolayer.com:11313/app124683125'
 client = MongoClient(MONGO_URL)

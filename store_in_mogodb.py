@@ -7,8 +7,7 @@ def solve():
   from pprint import pprint
   # connect to MongoDB, change the << MONGODB URL >> to reflect your own connection string
   MONGO_URL = (
-    'mongodb://heroku:t0jAu_Zkkvj0iSCRIMZe07kRboi-t0DQYIrnzY-1bxlHDNXBYp6AjvJXJiwe9w9D-WjrOhhoUzVdOMtyoO8FPQ'
-    '@candidate.66.mongolayer.com:10351,candidate.61.mongolayer.com:11313/app124683125')
+    'mongodb://heroku:t0jAu_Zkkvj0iSCRIMZe07kRboi-t0DQYIrnzY-1bxlHDNXBYp6AjvJXJiwe9w9D-WjrOhhoUzVdOMtyoO8FPQ@candidate.66.mongolayer.com:10351,candidate.61.mongolayer.com:11313/app124683125')
   print(MONGO_URL)
   client = MongoClient(MONGO_URL)
   print(client)
