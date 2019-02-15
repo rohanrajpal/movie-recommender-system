@@ -28,6 +28,15 @@ def calc_error(R, P, Q, beta, K):
 
     return e
 
+def calc_error_trained(R, P, Q, beta, K):
+    e = 0
+    # for i in range(len(R)):
+    i = len(R) - 1
+    for j in range(len(R[i])):
+        if R[i][j] > 0:
+            e += error_rating(R, P, Q, i, j) + calc_magnitude(P, Q, beta, i, j, K)
+
+    return e
 
 def calc_magnitude(P, Q, beta, i, j, K):
     e = 0
@@ -83,7 +92,7 @@ def solve(data_to_add):
     # define constants
     alpha = 0.0002
     beta = 0.02
-    iterations = 500
+    iterations = 5000
     similarities = 2
 
     R = (get_and_conv_data())
@@ -113,7 +122,7 @@ def solvefortraineddata(R, alpha, beta, K, iterations, P, Q):
                 for k in range(K):
                     P[i][k] = P[i][k] + alpha * (2 * eij * Q[k][j] - beta * P[i][k])
                     Q[k][j] = Q[k][j] + alpha * (2 * eij * P[i][k] - beta * Q[k][j])
-        e = calc_error(R, P, Q, beta, K)
+        e = calc_error_trained(R, P, Q, beta, K)
         if e < 0.001:
             break
 
@@ -123,7 +132,7 @@ def solvefortraineddata(R, alpha, beta, K, iterations, P, Q):
 def adduserandsolve(data_toadd):
     alpha = 0.0002
     beta = 0.02
-    iterations = 5
+    iterations = 1000
     similarities = 2
 
     getP, getQ = (get_traineddata())
@@ -183,16 +192,16 @@ if __name__ == '__main__':
     # get_prediction(R, userId, MovieId);
 
     data_toadd = np.array(
-        [0, 2, 3, 4, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        [0, 2, 3, 4, 5, 5, 5, 5, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 
     # print(data_toadd)
-    # print(adduserandsolve(data_toadd))
-    # solve(data_toadd)
     print(adduserandsolve(data_toadd))
+    # solve(data_toadd)
+    # print(adduserandsolve(data_toadd))
     # M = get_traineddata()
     # print(len(M))
     # save_traineddata(solve(data_toadd))
