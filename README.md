@@ -39,3 +39,4 @@ https://kerpanic.wordpress.com/2018/03/26/a-gentle-guide-to-recommender-systems-
 https://github.com/alexeyza/startup-programming/blob/master/past%20semesters/fall%202014/resources/tutorials/heroku%20python%20with%20flask%20mongodb%20shoutout.md  
 https://blog.cambridgespark.com/tutorial-practical-introduction-to-recommender-systems-dbe22848392b
 https://github.com/csaluja/JupyterNotebooks-Medium/blob/master/CF%20Recommendation%20System-Examples.ipynb
+https://www.tutorialspoint.com/flask/flask_message_flashing.htm  
