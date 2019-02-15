@@ -16,9 +16,8 @@ It can be accessed using https://movie-recommender-precog.herokuapp.com/
 * Matrix factorisation collaborative filtering is in `matrix_factorisation.py`
 * The dummy user ratings were taken from the MovieLens database.
 ## A few things to note
-* Though logically the matrix factorization algorithm has been correctly implemented but my top recommendations was taking a lot of time, hence I had to reduce the iterations(and hence increase the error) to give the values.
 * The previous user ratings data is currently static, say a previous user now watches a movie and rates it. The change has to be reflected and models have to be retrained but I havent done that in my code. My solution to the problem though is to do the training bi-daily or at the end of the day.
-* The implementations of all collaborative filtering methods are not efficient and there are better implementations out there. However given the time contraints, I tried my best to keep the error at a minimum.
+* The implementations of all collaborative filtering methods are not optimal and there are better implementations out there. However given the time contraints, I tried my best to keep the error and complexity at a minimum.
 * The user ratings data collected from Movielens can be biased, to solve this problem one can ensure every type of user (liberal, strong rating wise) is there.
 ## Citations
 * I've implemented user and item based filtering using this link.  
