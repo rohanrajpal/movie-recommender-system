@@ -23,7 +23,7 @@ It can be accessed using https://movie-recommender-precog.herokuapp.com/
 * I've implemented user and item based filtering using this link.  
 https://www.youtube.com/watch?v=h9gpufJFF-0  
 * I've reffered to the code for collaborative filtering in this link  
-http://www.quuxlabs.com/wp-content/uploads/2010/09/mf.py_.txt  
+http://www.quuxlabs.com/blog/2010/09/matrix-factorization-a-simple-tutorial-and-implementation-in-python/  
 * Rest of the below links helped me understand a few things and complete this project.  
 https://realpython.com/python-csv/  
 https://dzone.com/articles/getting-started-with-python-and-mongodb  
