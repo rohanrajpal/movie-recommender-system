@@ -78,7 +78,7 @@ def get_top_recommendations(M,newM,userId):
             movie_list[movieId] = get_ratings(M,movieId,sims,userId)
     # movie_list = sorted(movie_list,key=movie_list.__getitem__)
     # movie_list = sorted(movie_list)
-    return (sorted(movie_list.items(), reverse=True,key=lambda kv: (kv[1], kv[0])))[0:10]
+    return (sorted(movie_list.items(), reverse=True,key=lambda x: x[1]))[0:10]
     # return movie_list
 
 def get_and_conv_data():
