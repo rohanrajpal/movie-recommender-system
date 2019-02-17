@@ -49,3 +49,4 @@ https://github.com/alexeyza/startup-programming/blob/master/past%20semesters/fal
 https://blog.cambridgespark.com/tutorial-practical-introduction-to-recommender-systems-dbe22848392b
 https://github.com/csaluja/JupyterNotebooks-Medium/blob/master/CF%20Recommendation%20System-Examples.ipynb
 https://www.tutorialspoint.com/flask/flask_message_flashing.htm  
+https://runnable.com/docker/python/dockerize-your-flask-application  
