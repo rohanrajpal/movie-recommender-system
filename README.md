@@ -15,6 +15,11 @@ It can be accessed using https://movie-recommender-precog.herokuapp.com/
 * Item-item filtering can be found in `item-item.py`
 * Matrix factorisation collaborative filtering is in `matrix_factorisation.py`
 * The dummy user ratings were taken from the MovieLens database.
+## Docker
+* Run the following command to build the docker image
+`docker build -t movie-recommender:latest .`
+* Now you can run the container via the following command
+`docker run -d -p 5000:5000 movie-recommender`
 ## A few things to note
 * The previous user ratings data is currently static, say a previous user now watches a movie and rates it. The change has to be reflected and models have to be retrained but I havent done that in my code. My solution to this problem is to do the training bi-daily or at the end of the day.
 * The implementations of all collaborative filtering methods are not optimal and there are better implementations out there. However given the time contraints, I tried my best to keep the error and complexity at a minimum.
