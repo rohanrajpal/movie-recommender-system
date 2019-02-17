@@ -96,10 +96,10 @@ def conv_to_dict(recommendations):
 
 if __name__ == '__main__':
     app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
-    app.jinja_env.auto_reload = True
-    app.config['TEMPLATES_AUTO_RELOAD'] = True
-    app.run(debug=True)
+    # app.jinja_env.auto_reload = True
+    # app.config['TEMPLATES_AUTO_RELOAD'] = True
+    # app.run(debug=True)
 
-    # port = int(os.environ.get("PORT", 5000))
-    # app.run(host='0.0.0.0', port=port)
-    # app.run(debug=False)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
+    app.run(debug=False)
