@@ -1,7 +1,7 @@
 # movie-recommender-system
 Rohan Rajpal -2017089  
 This is my submission for the Intern/Member Programming Task - Summer 2019  
-**I have been given extension till 18th to do the deadline.**
+**I have been given an extension (till 18th February) to do the deadline.**
 ## Data Acquisition 
 
 * I've collected the data using the omdb api. 200 Imdb movie Ids were taken from the MovieLens database. The script is `dataGetAndWrite.py`
